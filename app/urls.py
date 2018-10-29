@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^hello/$',views.hello),
     url(r'^$',views.index,name='index'),
 
+
 ]

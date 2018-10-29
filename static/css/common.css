@@ -817,6 +817,7 @@ label.color-gold {
 /*banner*/
 
 .banner {
+	height: 420px;
 	width: 100%;
 	margin: 0 auto;
 	clear: both;
@@ -833,55 +834,30 @@ label.color-gold {
 	overflow: hidden;
 	position: relative;
 }
-.banner .slide_box  ol li {
-	width: 100%;
-	height: 420px;
-	position: absolute;
-	z-index: 1;
-	opacity: 1;
-	display: none;
-}
-.switchable-wp {
-    width: 838px;
-    margin: 0 auto;
-    position: relative;
-    height: 420px;
-    padding-left: 252px;
-}
-.switchable-main {
+#topSwiper {
+    height: 100%;
     width: 100%;
-    position: relative;
-    height: 420px;
+    overflow: hidden;
 }
-.slide-trigger {
-    position: absolute;
-    z-index: 60;
-    bottom: 10px;
-    left: 50%;
+
+#topSwiper .swiper-wrapper{
+    width: 100%;
+    height: 100%;
 }
-.slide-trigger li {
-    float: left;
-    background-color: #999;
-    width: 12px;
-    height: 12px;
-    margin-left: 8px;
-    border-radius: 50%;
+#topSwiper .swiper-wrapper a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
 }
-.slide-trigger .active{ 
-    float: left;
-    background-color: #EC3E7D;
-    width: 12px;
-    height: 12px;
-    margin-left: 8px;
-    border-radius: 50%;
+#topSwiper img{
+	height: 100%;
+    overflow: hidden;
+	margin:0 auto;
 }
-.slide-trigger li a{
-	text-indent: -999em;
-    visibility: hidden;
+#topSwiper .swiper-pagination{
+    bottom: 0px;
 }
-.slide_box a {
-	cursor: pointer;
-}
+
 
 /*webtool*/
 .webtool {
