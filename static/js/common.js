@@ -127,13 +127,50 @@ $(function() {
 	/*
 	 * banner
 	 */
-	 var topSwiper = new Swiper('#topSwiper', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        autoplay: 2500,
-        // loop: true,
-        pagination: '.swiper-pagination',
-	 })
+	 // var topSwiper = new Swiper('#topSwiper', {
+      //   slidesPerView: 1,
+      //   spaceBetween: 30,
+      //   autoplay: 2500,
+      //   // loop: true,
+      //   pagination: '.swiper-pagination',
+	 // })
+
+		var $li = $('#banner_list li');
+		var $li_tip = $('.switchable-wp .slide-trigger li');
+		var size = $("#banner_list li").length;
+		//初始化下标
+		var i = 0;
+		$li.eq(i).css('display', 'block');
+		$li_tip.eq(i).addClass('active');
+		//设置定时器，自动轮播
+		var timer = setInterval(function() {
+			i++;
+			fadeImg();
+		}, 4000)
+
+		function fadeImg() {
+			if(i >= size) {
+				i = 0;
+			}
+			//			$li.animate({opacity:0}).eq(i).animate({opacity:1});
+			$li.not($li.eq(i)).fadeOut();
+			$li.eq(i).fadeIn();
+			$li_tip.removeClass('active').eq(i).addClass('active');
+		}
+		$li_tip.mouseenter(function() {
+			var index = $(this).index();
+			i = index;
+			fadeImg();
+		})
+		$('#banner_list').hover(function() {
+			clearInterval(timer);
+		}, function() {
+			clearInterval(timer);
+			timer = setInterval(function() {
+				i++;
+				fadeImg();
+			}, 4000)
+		})
 	/*
 	 * mustcheck
 	 */
@@ -149,60 +186,60 @@ $(function() {
 	/*
 	 * flashsale
 	 */
-	$flash = $('.flashsale-list');
-	$.getJSON("json/flashsale.json", function(data) {
-		for(var i = 0; i < data.length; i++) {
-			var obj = data[i];
-			var li = $('<li></li>');
-			li.html('<a href="Product Details.html" target="_blank"><i class="count"><b>' + obj.count + '</b></i><i class="buynow"></i><div class="flashsale-pic"><img src="img/flashsale/' + obj.pic + '.jpg" alt=""></div><div class="sale-price"><span class="buy_num fr">已售' + obj.buyNum + '件</span><span class="price tl">￥' + obj.price + '</span><span class="dis tl"><del>￥' + obj.dis + '</del></span></div><div class="flashsale-info"><div class="des01"><i class="icon iconfont">&#xe612;</i>' + obj.des01 + '</div><div class="des02">' + obj.des02 + '</div><p class="des03">' + obj.des03 + '</p><p class="des04">' + obj.des04 + '</p><p class="tr" id="iprefix_seckill_time_79834"><i class="icon iconfont">&#xe60e;</i> 剩余 <span class="day"></span>天<span class="hour"></span>时<span class="minute"></span>分 <span class="second"></span>秒</p></div></a></li>')
-			li.appendTo($flash);
+	// $flash = $('.flashsale-list');
+	// $.getJSON("json/flashsale.json", function(data) {
+	// 	for(var i = 0; i < data.length; i++) {
+	// 		var obj = data[i];
+	// 		var li = $('<li></li>');
+	// 		li.appendTo($flash);
 
-			function showTime() {
-				var time_start = new Date(); //设定当前时间
-				var time_end = new Date(); //设定目标时间
-				time_end.setDate(time_end.getDate() + 1);
-				time_end.setHours(9);
-				time_end.setMinutes(0);
-				time_end.setSeconds(0);
-				var time_distance = time_end - time_start;
+    function showTime() {
+        var time_start = new Date(); //设定当前时间
+        var time_end = new Date(); //设定目标时间
+        time_end.setDate(time_end.getDate() + 1);
+        time_end.setHours(9);
+        time_end.setMinutes(0);
+        time_end.setSeconds(0);
+        var time_distance = time_end - time_start;
 
-				// 计算时间差 
-				var time_distance = time_end - time_start;
-				// 天
-				var int_day = Math.floor(time_distance / 86400000)
-				time_distance -= int_day * 86400000;
-				// 时
-				var int_hour = Math.floor(time_distance / 3600000)
-				time_distance -= int_hour * 3600000;
-				// 分
-				var int_minute = Math.floor(time_distance / 60000)
-				time_distance -= int_minute * 60000;
-				// 秒 
-				var int_second = Math.floor(time_distance / 1000)
-					// 时分秒为单数时、前面加零 
-				if(int_day < 10) {
-					int_day = "0" + int_day;
-				}
-				if(int_hour < 10) {
-					int_hour = "0" + int_hour;
-				}
-				if(int_minute < 10) {
-					int_minute = "0" + int_minute;
-				}
-				if(int_second < 10) {
-					int_second = "0" + int_second;
-				}
-				// 显示时间 
-				$(".day").html(int_day);
-				$(".hour").html(int_hour);
-				$(".minute").html(int_minute);
-				$(".second").html(int_second);
-			}
-			// 设置定时器
-			var timer = setInterval(showTime, 1000);
-		}
+        // 计算时间差
+        var time_distance = time_end - time_start;
+        // 天
+        var int_day = Math.floor(time_distance / 86400000)
+        time_distance -= int_day * 86400000;
+        // 时
+        var int_hour = Math.floor(time_distance / 3600000)
+        time_distance -= int_hour * 3600000;
+        // 分
+        var int_minute = Math.floor(time_distance / 60000)
+        time_distance -= int_minute * 60000;
+        // 秒
+        var int_second = Math.floor(time_distance / 1000)
+        // 时分秒为单数时、前面加零
+        if (int_day < 10) {
+            int_day = "0" + int_day;
+        }
+        if (int_hour < 10) {
+            int_hour = "0" + int_hour;
+        }
+        if (int_minute < 10) {
+            int_minute = "0" + int_minute;
+        }
+        if (int_second < 10) {
+            int_second = "0" + int_second;
+        }
+        // 显示时间
+        $(".day").html(int_day);
+        $(".hour").html(int_hour);
+        $(".minute").html(int_minute);
+        $(".second").html(int_second);
+    }
 
-	});
+    // 设置定时器
+    var timer = setInterval(showTime, 1000);
+	// 	}
+    //
+	// });
 
 	/*
 	 * newarrivals
@@ -221,13 +258,13 @@ $(function() {
 		$(this).find('a').css('color', '#3e3e3e');
 	});
 	$newarrivals = $('.newarrivals-list');
-	$.getJSON("json/newarrivals.json", function(data) {
-		for(var i = 0; i < data.length; i++) {
-			var obj = data[i];
-			var li = $('<li class="normal"></li>');
-			li.html('<div class="formall"><div class="formallcont"><div class="arrivals-pic"><b><img src="img/newarrivals/' + obj.messpic + '.png"></b><dl><dd><i class="icountry"><img src="img/newarrivals/' + obj.coupic + '.png"></i>韩国品牌</dd></dl><a href="" target="_blank"><img alt="" src="img/newarrivals/' + obj.pic + '.jpg"></a></div><div class="sale-price"><span class="count fr">' + obj.count + '折</span><span class="price tl">￥' + obj.price + '</span><span class="dis tl"><del>￥' + obj.dis + '</del></span></div><div class="arrivals-info"><div class="infoconts"><div class="des02"><a href="" target="_blank">' + obj.des02 + '</a></div><p class="des03"><a href="" target="_blank">' + obj.des03 + '</a></p><p class="des04">' + obj.des04 + '</p></div><!--秒杀简介--><div class="des05"><i class="icon iconfont">&#xe612;</i>' + obj.des05 + '</div><p class="salenum">已售' + obj.saleNum + '件</p></div><div class="btn-buy"><a class="btn btn-major action-addtocart"><span>加入购物车</span></a></div><!--加入收藏的商品也要可以加入购物车 --></div></div>')
-			li.appendTo($newarrivals);
-		}
+	// $.getJSON("json/newarrivals.json", function(data) {
+	// 	for(var i = 0; i < data.length; i++) {
+	// 		var obj = data[i];
+	// 		var li = $('<li class="normal"></li>');
+	// 		li.html('<div class="formall"><div class="formallcont"><div class="arrivals-pic"><b><img src="img/newarrivals/' + obj.messpic + '.png"></b><dl><dd><i class="icountry"><img src="img/newarrivals/' + obj.coupic + '.png"></i>韩国品牌</dd></dl><a href="" target="_blank"><img alt="" src="img/newarrivals/' + obj.pic + '.jpg"></a></div><div class="sale-price"><span class="count fr">' + obj.count + '折</span><span class="price tl">￥' + obj.price + '</span><span class="dis tl"><del>￥' + obj.dis + '</del></span></div><div class="arrivals-info"><div class="infoconts"><div class="des02"><a href="" target="_blank">' + obj.des02 + '</a></div><p class="des03"><a href="" target="_blank">' + obj.des03 + '</a></p><p class="des04">' + obj.des04 + '</p></div><!--秒杀简介--><div class="des05"><i class="icon iconfont">&#xe612;</i>' + obj.des05 + '</div><p class="salenum">已售' + obj.saleNum + '件</p></div><div class="btn-buy"><a class="btn btn-major action-addtocart"><span>加入购物车</span></a></div><!--加入收藏的商品也要可以加入购物车 --></div></div>')
+	// 		li.appendTo($newarrivals);
+	// 	}
 
 		//addcart
 		$('.action-addtocart').click(function() {
@@ -295,7 +332,7 @@ $(function() {
 			}
 		});
 
-	});
+	// });
 
 	/*
 	 * hotbrands

@@ -604,25 +604,33 @@
         </div>
     </div>
 </div>
+
 <div class="banner">
-    <div class="page">
-        <div class="slide_box">
-            <div class="swiper-container" id="topSwiper">
-                <div class="swiper-wrapper">
+			<div class="page">
+				<div class="slide_box">
+					<a>
+                        <ol id="banner_list">
+                            {% for wheel in wheels %}
+                                  <li>
+                                       <img src="{{ wheel.w_img }}">
+                                  </li>
+                            {% endfor %}
 
-                   {% for wheel in wheels %}
-                        <div class="swiper-slide">
-                            <img src="{{ wheel.w_img }}">
-                        </div>
-                   {% endfor %}
+                        </ol>
+                    </a>
+					<div class="switchable-wp">
+						<div class="switchable-main">
+							<ul class="slide-trigger" style="margin-left:-56px;">
+                                {% for wheel in wheels %}
+                                    <li class="paginator"></li>
+                                {% endfor %}
 
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-</div>
+                            </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 <div class="webtool">
     <ul class="flooricon">
@@ -708,13 +716,39 @@
     <div class="mustad2 mustad" style="background: url() left top no-repeat;"></div>
 </div>
 <!--限时特卖-->
-<div class="flashsale page">
+<div class="flashsale">
     <div class="flashsale_head">
         <a href="" target="_blank">查看所有</a>
         <span class="bticon">秒杀商品</span>
     </div>
     <div class="flashsale_con">
-        <ul class="flashsale-list"></ul>
+        <ul class="flashsale-list">
+            {% for flashsale in flashsales %}
+                <li>
+                    <a href="#">
+                        <i class="count"><b>{{ flashsale.count }}</b></i>
+                        <i class="buynow"></i>
+                        <div class="flashsale-pic"><img src="{{ flashsale.pic }}"></div>
+                        <div class="sale-price">
+                            <span class="price tl">￥{{ flashsale.price }}</span>
+                            <span class="dis tl"><del>{{ flashsale.dis }}</del></span>
+                            <span class="buy_num fr">已售{{ flashsale.buyNum }}件</span>
+                        </div>
+                        <div class="flashsale-info">
+                            <div class="des01">
+                                <i class="icon iconfont">“</i>{{ flashsale.des01 }}
+                            </div>
+                            <div class="des02">{{ flashsale.des02 }}</div>
+                            <p class="des03">{{ flashsale.des03 }}</p>
+                            <p class="des04">{{ flashsale.des04 }}</p>
+                        </div>
+
+                    </a>
+                </li>
+
+            {% endfor %}
+
+        </ul>
     </div>
 </div>
 <!--新品上市-->
@@ -753,7 +787,56 @@
             <a href="">化妆水</a>
         </li>
     </ul>
-    <ul class="newarrivals-list"></ul>
+    <ul class="newarrivals-list">
+        {% for newarrival in newarrivals %}
+            <li class="normal">
+                <div class="formall">
+                    <div class="formallcont">
+                        <div class="arrivals-pic">
+                            <b>{{ newarrival.messpic }}</b>
+                            <dl>
+                                <dd>
+                                    <i class="icountry">
+                                        <img src="{{ newarrival.coupic }}">
+                                    </i>韩国品牌
+                                </dd>
+                            </dl>
+                            <a href target="_blank">
+                                <img src="{{ newarrival.pic }}">
+                            </a>
+                        </div>
+                        <div class="sale-price">
+                            <span class="count fr">{{ newarrival.count }}折</span>
+                            <span class="price tl">￥{{ newarrival.price }}</span>
+                            <span class="dis tl"><del>￥{{ newarrival.dis }}</del></span>
+                        </div>
+                        <div class="arrivals-info">
+                            <div class="infoconts">
+                                <div class="des02">
+                                    <a href target="_blank">{{ newarrival.des02 }}</a>
+                                </div>
+                                <p class="des03">
+                                    <a href target="_blank">{{ newarrival.des03 }}</a>
+                                </p>
+                                <p class="des04">{{ newarrival.des04 }}</p>
+                            </div>
+                            <div class="des05">
+                                <i class="icon iconfont">“</i>{{ newarrival.des05 }}
+                            </div>
+                            <p class="salenum">已售{{ newarrival.saleNum }}件</p>
+                        </div>
+                        <div class="btn-buy">
+                            <a class="btn btn-major action-addtocart">
+                                <span>加入购物车</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        {% endfor %}
+
+    </ul>
 </div>
 <!--热门品牌-->
 <div class="hotbrands page">

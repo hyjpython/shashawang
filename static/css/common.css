@@ -816,8 +816,48 @@ label.color-gold {
 
 /*banner*/
 
+/*.banner {*/
+	/*height: 420px;*/
+	/*width: 100%;*/
+	/*margin: 0 auto;*/
+	/*clear: both;*/
+	/*background: #e7ddd4;*/
+/*}*/
+/*.banner .page {*/
+	/*height: 420px;*/
+	/*position: relative;*/
+	/*width: 100%;*/
+/*}*/
+/*.banner .slide_box {*/
+	/*width: 100%;*/
+	/*height: 420px;*/
+	/*overflow: hidden;*/
+	/*position: relative;*/
+/*}*/
+/*#topSwiper {*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*overflow: hidden;*/
+/*}*/
+
+/*#topSwiper .swiper-wrapper{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*#topSwiper .swiper-wrapper a{*/
+    /*display: inline-block;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+/*#topSwiper img{*/
+	/*height: 100%;*/
+    /*overflow: hidden;*/
+	/*margin:0 auto;*/
+/*}*/
+/*#topSwiper .swiper-pagination{*/
+    /*bottom: 0px;*/
+/*}*/
 .banner {
-	height: 420px;
 	width: 100%;
 	margin: 0 auto;
 	clear: both;
@@ -834,30 +874,55 @@ label.color-gold {
 	overflow: hidden;
 	position: relative;
 }
-#topSwiper {
-    height: 100%;
+.banner .slide_box  ol li {
+	width: 100%;
+	height: 420px;
+	position: absolute;
+	z-index: 1;
+	opacity: 1;
+	display: none;
+}
+.switchable-wp {
+    width: 838px;
+    margin: 0 auto;
+    position: relative;
+    height: 420px;
+    padding-left: 252px;
+}
+.switchable-main {
     width: 100%;
-    overflow: hidden;
+    position: relative;
+    height: 420px;
 }
-
-#topSwiper .swiper-wrapper{
-    width: 100%;
-    height: 100%;
+.slide-trigger {
+    position: absolute;
+    z-index: 60;
+    bottom: 10px;
+    left: 50%;
 }
-#topSwiper .swiper-wrapper a{
-    display: inline-block;
-    width: 100%;
-    height: 100%;
+.slide-trigger li {
+    float: left;
+    background-color: #999;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border-radius: 50%;
 }
-#topSwiper img{
-	height: 100%;
-    overflow: hidden;
-	margin:0 auto;
+.slide-trigger .active{
+    float: left;
+    background-color: #EC3E7D;
+    width: 12px;
+    height: 12px;
+    margin-left: 8px;
+    border-radius: 50%;
 }
-#topSwiper .swiper-pagination{
-    bottom: 0px;
+.slide-trigger li a{
+	text-indent: -999em;
+    visibility: hidden;
 }
-
+.slide_box a {
+	cursor: pointer;
+}
 
 /*webtool*/
 .webtool {
@@ -1041,6 +1106,7 @@ li.current i ,li.current a{
 }
 .flashsale .flashsale_head a:hover {
 	color: #EC3E7D;
+	text-decoration: none;
 }
 .flashsale .flashsale_head span {
     text-indent: -9999px;
@@ -1065,6 +1131,8 @@ li.current i ,li.current a{
 .flashsale-list li a{ 
  	position: relative;
  	z-index: 2;
+	text-decoration: none;
+	color: #000000;
 }
 .flashsale-list li:hover .flashsale-pic img {
 	-webkit-filter: blur(24px);
@@ -1074,9 +1142,11 @@ li.current i ,li.current a{
 	filter: blur(40px);
 	filter: blur(24px);
 	z-index: 10;
+
 }
 .flashsale-list li:hover {
 	box-shadow: 4px 4px 20px rgba(0, 0, 0, .2);
+
 }
 .flashsale-list li:hover i.buynow, .flashsale-list li:hover i.buynow2 {
 	display: block;
@@ -1084,9 +1154,11 @@ li.current i ,li.current a{
 	height: 230px;
 	top: 50px;
 	left: 60px;
+
 }
 .flashsale-list li:hover i.buynow2 {
 	background-position: 0 -615px;
+
 }
 i.count {
     width: 48px;
@@ -1108,7 +1180,7 @@ i.count b {
 i.count, i.buynow, i.count2, i.buynow2 {
     display: block;
     position: absolute;
-    background: url(../img/tips.png) no-repeat;
+    background: url(/static/img/tips.png) no-repeat;
     z-index: 100;
 }
 
