@@ -62,6 +62,7 @@
                     </div>
                     <div id="js_updatecart" class="J-updatecart">
                         <div class="no-information ui-sidecart-empty">购物车中还没有商品，赶紧选购吧！</div>
+
                     </div>
                 </div>
             </div>
@@ -115,8 +116,8 @@
         <div class="login-bar">
 					<span id="loginBar">
 						<span>欢迎光临莎莎官网！</span>
-					<a href="login.html" style="margin-left:10px;">登录</a> <span class="dividing">或 </span>
-					<a href="register.html">免费注册</a>
+					<a href="{% url 'app:login' %}" style="margin-left:10px;">登录</a> <span class="dividing">或 </span>
+					<a href="{% url 'app:register' %}">免费注册</a>
 					</span>
             <span id="memberBar">
 	   				 	<span>您好！<span id="uname"></span></span>
@@ -197,7 +198,7 @@
 <div class="header-main">
     <div class="page">
         <div class="logo">
-            <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
+            <a href="{% url 'app:index' %}"><img src="{% static 'img/logo.png' %}" alt="logo"></a>
         </div>
         <div class="search">
             <form>
@@ -864,7 +865,21 @@
             <a href="javascript:void(0);">代理品牌</a>
         </li>
     </ul>
-    <ul class="brand_logo"></ul>
+    <ul class="brand_logo">
+        {% for hotbrand in hotbrands %}
+            <li>
+            <p>
+                <img class="img" src="{{ hotbrand.logo }}">
+                <a href="#" target="_blank">
+                    <img class="img" src="{{ hotbrand.img }}">
+                </a>
+            </p>
+            </li>
+
+        {% endfor %}
+
+
+    </ul>
 </div>
 <div class="footer">
     <div class="helper">

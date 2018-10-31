@@ -338,13 +338,13 @@ $(function() {
 	 * hotbrands
 	 */
 	$brandLogo = $('.brand_logo');
-	$.getJSON("json/hotbrands.json", function(data) {
-		for(var i = 0; i < data.length; i++) {
-			var obj = data[i];
-			var li = $('<li></li>');
-			li.html('<p style="top: 0px;"><img class="img" src="img/brand/logo/' + obj.logo + '.jpg"><a href="Product Details.html" target="_blank"><img class="img" src="img/brand/img/' + obj.img + '.jpg"></a></p>')
-			li.appendTo($brandLogo);
-		}
+	// $.getJSON("json/hotbrands.json", function(data) {
+	// 	for(var i = 0; i < data.length; i++) {
+	// 		var obj = data[i];
+	// 		var li = $('<li></li>');
+	// 		li.html('<p style="top: 0px;"><img class="img" src="img/brand/logo/' + obj.logo + '.jpg"><a href="Product Details.html" target="_blank"><img class="img" src="img/brand/img/' + obj.img + '.jpg"></a></p>')
+	// 		li.appendTo($brandLogo);
+	// 	}
 		$('.brand_logo li').hover(function() {
 			$(this).find('p').stop().animate({
 				"top": "-150"
@@ -355,4 +355,4 @@ $(function() {
 			}, 100)
 		})
 	});
-})
+// })
