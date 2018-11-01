@@ -114,16 +114,21 @@
 <div class="topbar">
     <div class="page">
         <div class="login-bar">
-					<span id="loginBar">
+            {% if username %}
+                <span id="memberBar">
+	   				 	<span>您好！<span id="uname">{{ username }}</span></span>
+					<span class="point" style="color:#cb9966;"><b>0</b> 积分</span>
+					<a href="{% url 'app:quit' %}">退出</a>
+					</span>
+            {% else %}
+                <span id="loginBar">
 						<span>欢迎光临莎莎官网！</span>
 					<a href="{% url 'app:login' %}" style="margin-left:10px;">登录</a> <span class="dividing">或 </span>
 					<a href="{% url 'app:register' %}">免费注册</a>
 					</span>
-            <span id="memberBar">
-	   				 	<span>您好！<span id="uname"></span></span>
-					<span class="point" style="color:#cb9966;"><b>0</b> 积分</span>
-					<a href="index.html">退出</a>
-					</span>
+
+            {% endif %}
+
         </div>
         <div class="member-bar">
             <ul>

@@ -25,7 +25,7 @@ $(function() {
 				$cartList.append(_li);
 				sumprice += parseInt(addcarts[i].price);
 			}
-			$('#js_updatecart').append($cartList).append('<div class="sidecart-totle" style="position: absolute; bottom: 60px;">共 <span id="J_sidecart-totalitem" class="color-pink">' + addcarts.length + '</span> 件商品已选择 <span id="J_sidecart-selecteditem"class="color-pink">' + addcarts.length + '</span> 件<strong id="J_sidecart-subtotal" class="color-pink">￥' + sumprice + '</strong></div><a href="Shopping Cart.html" class="btn-sidecart">去购物车结算</a>');
+			$('#js_updatecart').append($cartList).append('<div class="sidecart-totle" style="position: absolute; bottom: 60px;">共 <span id="J_sidecart-totalitem" class="color-pink">' + addcarts.length + '</span> 件商品已选择 <span id="J_sidecart-selecteditem"class="color-pink">' + addcarts.length + '</span> 件<strong id="J_sidecart-subtotal" class="color-pink">￥' + sumprice + '</strong></div><a href="/cart/" class="btn-sidecart">去购物车结算</a>');
 			$('.J-cart-remove').click(function() {
 				for(var i = 0; i < addcarts.length; i++) {
 					if(addcarts[i].img == $(this).closest('.sidecart-list-item').find('img').attr('src')) {

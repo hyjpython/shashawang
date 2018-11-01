@@ -119,11 +119,12 @@
                 </div>
             </div>
             <div class="signup_box">
-                <form action="" method="">
+                <form action="{% url 'app:login' %}" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <ul>
                         <li class="form-item">
                             <label for="" class="form-label">邮箱/手机：</label>
-                            <span class="form-act"><input class="icon-yhm x-input" type="text" name="uname" value=""
+                            <span class="form-act"><input class="icon-yhm x-input" type="text" name="username" value=""
                                                           placeholder="邮箱/手机" vtype="required"></span>
                         </li>
                         <li class="form-item">

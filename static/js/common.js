@@ -1,21 +1,21 @@
 $(function() {
 	//用户是否登录
 
-	var url = window.location.search;
-	if(url.length > 0) {
-		$('#loginBar').css('display', 'none');
-		$('#memberBar').css('display', 'block');
-	} else {
-		$('#loginBar').css('display', 'block');
-		$('#memberBar').css('display', 'none');
-	}
-	//console.log(url.lastIndexOf('='));
-	var loc = url.substring(url.lastIndexOf('=') + 1, url.length);
-	//console.log(loc);
-	$('#uname').html(loc);
-	/*
-	 * sidebar侧边栏
-	 */
+	// var url = window.location.search;
+	// if(url.length > 0) {
+	// 	$('#loginBar').css('display', 'none');
+	// 	$('#memberBar').css('display', 'block');
+	// } else {
+	// 	$('#loginBar').css('display', 'block');
+	// 	$('#memberBar').css('display', 'none');
+	// }
+	// //console.log(url.lastIndexOf('='));
+	// var loc = url.substring(url.lastIndexOf('=') + 1, url.length);
+	// //console.log(loc);
+	// $('#uname').html(loc);
+	// /*
+	//  * sidebar侧边栏
+	//  */
 	$('.sidebar_link').on('mouseenter', function() {
 		$father = $(this).closest('.sidetab');
 		$father.css('background-color', 'rgb(236,63,125)');

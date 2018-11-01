@@ -147,21 +147,21 @@ $(function() {
 				}
 			}
 			
-			//注册用户
+			注册用户
 			var user = {
 				name: $user.find('input').val(),
 				pwd: $psd.find('input').val()
 			}
-			users.push(user); 
-			
+			users.push(user);
+
 			$.cookie("users", JSON.stringify(users), {expires:22, path:"/"});
 			console.log( $.cookie("users") );
 			var success = $('<div class="success"><i class="iconfont">&#xe616;</i>注册成功</div>');
 			$('body').append(success);
 			setTimeout(function() {
 				$('body').find('.success').remove();
-				window.location.href="login.html";
-			}, 3000);		
+			// 	window.location.href="login.html";
+			}, 3000);
     		}
     		return false;
     })
