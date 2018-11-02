@@ -807,7 +807,7 @@
                                     </i>韩国品牌
                                 </dd>
                             </dl>
-                            <a href target="_blank">
+                            <a href="{% url 'app:detail' newarrival.id %}">
                                 <img src="{{ newarrival.pic }}">
                             </a>
                         </div>
@@ -819,10 +819,10 @@
                         <div class="arrivals-info">
                             <div class="infoconts">
                                 <div class="des02">
-                                    <a href target="_blank">{{ newarrival.des02 }}</a>
+                                    <a href="{% url 'app:detail' newarrival.id %}">{{ newarrival.des02 }}</a>
                                 </div>
                                 <p class="des03">
-                                    <a href target="_blank">{{ newarrival.des03 }}</a>
+                                    <a href="{% url 'app:detail' newarrival.id %}">{{ newarrival.des03 }}</a>
                                 </p>
                                 <p class="des04">{{ newarrival.des04 }}</p>
                             </div>

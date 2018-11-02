@@ -49,10 +49,6 @@ def register(request):
 
 
 def login(request):
-    responseData = {
-        'msg': '',
-        'status': ''
-    }
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -61,26 +57,18 @@ def login(request):
             user = User.objects.get(username=username)
             # 密码错误
             if user.password != password:
-                responseData['msg'] = '密码错误'
-                responseData['status'] = '-1'
-                return JsonResponse(responseData)
+                return render(request,'login.html',context={'defeat':'账号或密码错误'})
             # 密码正确
             else:
                 user.token = str(uuid.uuid5(uuid.uuid4(),'login'))
                 user.save()
                 request.session['token'] = user.token
-                responseData['msg'] = '登录成功'
-                responseData['status'] = '1'
-                return JsonResponse(responseData)
+                return redirect('app:index')
         # 账号错误
         except:
-            responseData['msg'] = '账号不存在'
-            responseData['status'] = '-2'
-            return JsonResponse(responseData)
+            return render(request,'login.html',context={'defeat':'用户不存在'})
     elif request.method == 'GET':
-        responseData['msg'] = '请求方式错误'
-        responseData['status'] = '2'
-        return JsonResponse(responseData)
+       return render(request,'login.html')
 
 
 
@@ -92,3 +80,11 @@ def cart(request):
 def quit(request):
     logout(request)
     return redirect('app:index')
+
+
+def detail(request,page):
+    newarrivals = NewArrivals.objects.all()[int(page)-1]
+
+
+
+    return render(request,'Product Details.html',context={'newarrivals':newarrivals})
