@@ -1248,6 +1248,7 @@ i.count, i.buynow, i.count2, i.buynow2 {
 .des02, .des03, .des04 {
     color: #808082;
 }
+
 .des03 {
     overflow: hidden;
     line-height: 20px;
@@ -1277,6 +1278,7 @@ i.count, i.buynow, i.count2, i.buynow2 {
 }
 .newarrivals_head a:hover {
 	color:#ec3e7d;
+	text-decoration: none;
 }
 .newarrivals .newarrivals_head span {
     background-position: 0 -213px;
@@ -1394,7 +1396,7 @@ i.count, i.buynow, i.count2, i.buynow2 {
     color: #ec3e7d;
 }
 .arrivals-info {
-    padding: 12px 15px;
+    padding: 12px 15px 0px 15px;
     overflow: hidden;
 }
 .infoconts {
@@ -1403,10 +1405,20 @@ i.count, i.buynow, i.count2, i.buynow2 {
 }
 .arrivals-info .des02, .arrivals-info .des03, .arrivals-info .des04 {
     color: #404040;
+	margin-bottom: 0;
+}
+.arrivals-info .des02 a{
+	font-size: 14px;
+	text-decoration: none;
+	color: #3e3e3e;
+}
+.arrivals-info .des03 a{
+	color: #3e3e3e;
+	text-decoration: none;
 }
 .des05 {
     font-size: 14px;
-    height: 40px;
+    height: 52px;
     overflow: hidden;
     line-height: 22px;
     padding: 6px 0;
@@ -1443,7 +1455,7 @@ i.count, i.buynow, i.count2, i.buynow2 {
 	display: none;
 }
 .formallcont .btn-buy, .formallcont .btn-get {
-    padding: 0 15px;
+    padding: 0;
     display: none;
 }
 .newarrivals-list .btn-buy .btn-major span {

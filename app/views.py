@@ -88,3 +88,12 @@ def detail(request,page):
 
 
     return render(request,'Product Details.html',context={'newarrivals':newarrivals})
+
+
+def checkuser(request):
+    username = request.GET.get('username')
+    try:
+        user = User.objects.get(username=username)
+        return JsonResponse({'msg':'用户已存在','status':'-1'})
+    except:
+        return JsonResponse({'msg':'','status':'1'})
